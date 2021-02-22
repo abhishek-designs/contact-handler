@@ -1,0 +1,32 @@
+// Contact
+export const GET_CONTACT = "GET_CONTACT";
+export const ADD_CONTACT = "ADD_CONTACT";
+export const EDIT_CONTACT = "EDIT_CONTACT";
+export const DELETE_CONTACT = "DELETE_CONTACT";
+export const SHOW_CURRENT_CONTACT = " SHOW_CURRENT_CONTACT";
+export const CLEAR_CURRENT_CONTACT = "CLEAR_CURRENT_CONTACT";
+export const SEARCH_CONTACT = "SEARCH_CONTACT";
+export const REMOVE_SEARCHED_CONTACTS = "REMOVE_SEARCHED_CONTACTS";
+export const CONTACT_FAILED = "CONTACT_FAILED";
+
+// User auth
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOAD_USER = "LOAD_USER";
+export const LOAD_USER_FAILED = "LOAD_USER_FAILED";
+export const LOGOUT = "LOGOUT";
+
+// Contact modal
+export const OPEN_CONTACT_MODAL = "OPEN_CONTACT_MODAL";
+export const CLOSE_CONTACT_MODAL = "CLOSE_CONTACT_MODAL";
+
+// Alert
+export const SHOW_ALERT = "SHOW_ALERT";
+export const REMOVE_ALERT = "REMOVE_ALERT";
+export const REMOVE_ERROR = "REMOVE_ERROR";
+export const REMOVE_CONTACT_ALERTS = "REMOVE_CONTACT_ALERTS";
+
+// Loading
+export const SET_LOADING = "SET_LOADING";

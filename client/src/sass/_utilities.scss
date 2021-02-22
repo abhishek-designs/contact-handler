@@ -1,0 +1,580 @@
+@import "variables";
+
+// Default styling
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: $light-color;
+  line-height: 1.4;
+  font-family: $montserrat;
+  color: $light-dark-color;
+  position: relative;
+  min-height: 100vh;
+  // height: 100vh;
+  // letter-spacing: 2px;
+}
+
+a {
+  text-decoration: none;
+  color: $dark-color;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $montserrat;
+  font-weight: 500;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  font-family: $montserrat;
+}
+
+// Pre-defined classes
+.container {
+  padding: 0 1rem;
+  &-small {
+    max-width: $small-width;
+    margin: 0 auto;
+  }
+  &-med {
+    max-width: $med-width;
+    margin: 0 auto;
+  }
+  &-large {
+    max-width: $large-width;
+    margin: 0 auto;
+  }
+}
+
+// Headings
+.head {
+  &-0 {
+    font-size: 0.8rem;
+  }
+  &-1 {
+    font-size: 1rem;
+  }
+  &-2 {
+    font-size: 1.2rem;
+  }
+  &-3 {
+    font-size: 1.5rem;
+  }
+  &-4 {
+    font-size: 2.5rem;
+  }
+  &-5 {
+    font-size: 3.5rem;
+  }
+}
+
+// Paragraphs
+.lead {
+  &-0 {
+    font-size: 0.8rem;
+  }
+  &-1 {
+    font-size: 1rem;
+  }
+  &-2 {
+    font-size: 1.2rem;
+  }
+  &-3 {
+    font-size: 1.5rem;
+  }
+}
+
+// Paddings
+// Padding on Y axis
+.py {
+  &-0 {
+    padding: 0.6rem 0;
+  }
+  &-1 {
+    padding: 1rem 0;
+  }
+  &-2 {
+    padding: 1.5rem 0;
+  }
+  &-3 {
+    padding: 2rem 0;
+  }
+  &-4 {
+    padding: 2.5rem 0;
+  }
+}
+
+// Padding on X axis
+.px {
+  &-0 {
+    padding: 0 0.6rem;
+  }
+  &-1 {
+    padding: 0 1rem;
+  }
+  &-2 {
+    padding: 0 1.5rem;
+  }
+  &-3 {
+    padding: 0 2rem;
+  }
+  &-4 {
+    padding: 0 2.5rem;
+  }
+}
+
+// Padding on top
+.pt {
+  &-0 {
+    padding-top: 0.6rem;
+  }
+  &-1 {
+    padding-top: 1rem;
+  }
+  &-2 {
+    padding-top: 1.5rem;
+  }
+  &-3 {
+    padding-top: 2rem;
+  }
+  &-4 {
+    padding-top: 2.5rem;
+  }
+  &-5 {
+    padding-top: 3.5rem;
+  }
+  &-6 {
+    padding-top: 4.5rem;
+  }
+}
+
+// Padding on bottom
+.pb {
+  &-00 {
+    padding: 0.4rem 0;
+  }
+  &-0 {
+    padding-bottom: 0.6rem;
+  }
+  &-1 {
+    padding-bottom: 1rem;
+  }
+  &-2 {
+    padding-bottom: 1.5rem;
+  }
+  &-3 {
+    padding-bottom: 2rem;
+  }
+  &-4 {
+    padding-bottom: 2.5rem;
+  }
+  &-5 {
+    padding-bottom: 3.5rem;
+  }
+  &-6 {
+    padding-bottom: 4.5rem;
+  }
+}
+
+// Padding on left
+.pl {
+  &-0 {
+    padding-left: 0.6rem;
+  }
+  &-1 {
+    padding-left: 1rem;
+  }
+  &-2 {
+    padding-left: 1.5rem;
+  }
+  &-3 {
+    padding-left: 2rem;
+  }
+  &-4 {
+    padding-left: 2.5rem;
+  }
+}
+
+// Padding on right
+.pr {
+  &-0 {
+    padding-right: 0.6rem;
+  }
+  &-1 {
+    padding-right: 1rem;
+  }
+  &-2 {
+    padding-right: 1.5rem;
+  }
+  &-3 {
+    padding-right: 2rem;
+  }
+  &-4 {
+    padding-right: 2.5rem;
+  }
+}
+
+// Margins
+// Margins on Y axis
+.my {
+  &-0 {
+    margin: 0.6rem 0;
+  }
+  &-1 {
+    margin: 1rem 0;
+  }
+  &-2 {
+    margin: 1.5rem 0;
+  }
+  &-3 {
+    margin: 2rem 0;
+  }
+  &-4 {
+    margin: 2.5rem 0;
+  }
+}
+
+// margin on X axis
+.mx {
+  &-0 {
+    margin: 0 0.6rem;
+  }
+  &-1 {
+    margin: 0 1rem;
+  }
+  &-2 {
+    margin: 0 1.5rem;
+  }
+  &-3 {
+    margin: 0 2rem;
+  }
+  &-4 {
+    margin: 0 2.5rem;
+  }
+}
+
+// margin on top
+.mt {
+  &-0 {
+    margin-top: 0.6rem;
+  }
+  &-1 {
+    margin-top: 1rem;
+  }
+  &-2 {
+    margin-top: 1.5rem;
+  }
+  &-3 {
+    margin-top: 2rem;
+  }
+  &-4 {
+    margin-top: 2.5rem;
+  }
+}
+
+// margin on bottom
+.mb {
+  &-0 {
+    margin-bottom: 0.6rem;
+  }
+  &-1 {
+    margin-bottom: 1rem;
+  }
+  &-2 {
+    margin-bottom: 1.5rem;
+  }
+  &-3 {
+    margin-bottom: 2rem;
+  }
+  &-4 {
+    margin-bottom: 2.5rem;
+  }
+}
+
+// margin on left
+.ml {
+  &-0 {
+    margin-left: 0.6rem;
+  }
+  &-1 {
+    margin-left: 1rem;
+  }
+  &-2 {
+    margin-left: 1.5rem;
+  }
+  &-3 {
+    margin-left: 2rem;
+  }
+  &-4 {
+    margin-left: 2.5rem;
+  }
+}
+
+// margin on right
+.mr {
+  &-0 {
+    margin-right: 0.6rem;
+  }
+  &-1 {
+    margin-right: 1rem;
+  }
+  &-2 {
+    margin-right: 1.5rem;
+  }
+  &-3 {
+    margin-right: 2rem;
+  }
+  &-4 {
+    margin-right: 2.5rem;
+  }
+}
+
+// Colors
+.primary {
+  color: $primary-color;
+}
+.primary-light {
+  color: lighten($primary-color, 10%);
+}
+.secondary {
+  color: $secondary-color;
+}
+.yellow {
+  color: $yellow-color;
+}
+.red {
+  color: $red-color;
+}
+.green {
+  color: $green-color;
+}
+.dark {
+  color: $dark-color;
+}
+.light-dark {
+  color: $light-dark-color;
+}
+.light {
+  color: $light-color;
+}
+.semi-med {
+  color: $semi-med-color;
+}
+
+// Background colors
+.bg {
+  &-primary {
+    background-color: $primary-color;
+  }
+  &-secondary {
+    background-color: $secondary-color;
+  }
+  &-yellow {
+    background-color: $yellow-color;
+  }
+  &-red {
+    background-color: $red-color;
+  }
+  &-green {
+    background-color: $green-color;
+  }
+  &-dark {
+    background-color: $dark-color;
+  }
+  &-light-dark {
+    background-color: $light-dark-color;
+  }
+  &-light {
+    background-color: $light-color;
+  }
+  &-semi-med {
+    background-color: $semi-med-color;
+  }
+  &-med {
+    background-color: $med-color;
+  }
+}
+
+// Buttons
+%btn-shared {
+  display: inline-block;
+  padding: 0.6rem 1.8rem;
+  margin-top: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: $montserrat;
+  transition: all $high-speed ease;
+}
+
+.btn {
+  @extend %btn-shared;
+
+  &-primary {
+    background: $primary-color;
+    color: $light-color;
+
+    &-stroked {
+      background: $light-color;
+      border-color: $primary-color;
+      color: $primary-color;
+
+      &:hover {
+        background: $primary-color;
+        border-color: transparent;
+        color: $light-color;
+      }
+    }
+
+    &:hover {
+      background: lighten($primary-color, 10%);
+      // color: $primary-color;
+    }
+  }
+
+  &-yellow {
+    background: $yellow-color;
+    color: $primary-color;
+
+    &:hover {
+      background: lighten($yellow-color, 10%);
+    }
+  }
+
+  &-danger {
+    background: $red-color;
+    color: $light-color;
+
+    &:hover {
+      background: lighten($red-color, 10%);
+    }
+  }
+
+  &-light {
+    background: $light-color;
+    color: $primary-color;
+
+    &:hover {
+      background: darken($light-color, 10%);
+    }
+  }
+
+  &-navigation {
+    background: $light-color;
+    color: darken($semi-med-color, 10%);
+
+    &:hover {
+      background: darken($light-color, 1%);
+    }
+  }
+
+  &-disabled {
+    background: $semi-med-color;
+    color: darken($semi-med-color, 10%);
+    cursor: auto;
+  }
+}
+
+.alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: $light-color;
+  padding: 1rem 0;
+  text-align: center;
+  font-weight: 500;
+  z-index: 6;
+
+  i {
+    position: absolute;
+    left: 20px;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+
+  &-success {
+    background: darken($green-color, 10%);
+  }
+  &-danger {
+    background: $red-color;
+  }
+  &-warn {
+    background: $yellow-color;
+  }
+}
+
+.auth-alert {
+  position: absolute;
+  width: 40rem;
+  top: 8rem;
+  right: 35rem;
+  z-index: -1;
+  color: $light-color;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 10px;
+  z-index: 1;
+
+  i {
+    // position: absolute;
+    // left: 20px;
+    // transform: translateY(-50%);
+    // top: 50%;
+    padding-right: 1rem;
+  }
+
+  &-success {
+    background: darken($green-color, 10%);
+  }
+  &-danger {
+    background: $red-color;
+  }
+  &-warn {
+    background: $yellow-color;
+  }
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 10px;
+  transition: all $med-speed ease;
+
+  &-stroked {
+    border: 1px solid $semi-med-color;
+  }
+
+  &-shadowed {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  // &-animating {
+  //   &:hover {
+  //     transform: translateY(-5px);
+  //     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  //   }
+  // }
+}
