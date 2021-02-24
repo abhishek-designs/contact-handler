@@ -107,8 +107,18 @@
           width: 100%;
           background: rgba(0, 0, 0, 0.3);
           z-index: 3;
-          opacity: 0;
-          pointer-events: none;
+          // opacity: 0;
+          // pointer-events: none;
+
+          &-active {
+            opacity: 1;
+            pointer-events: all;
+          }
+
+          &-deactive {
+            opacity: 0;
+            pointer-events: none;
+          }
         }
         .menu-options-contain {
           position: fixed;
@@ -119,8 +129,15 @@
           width: 20rem;
           z-index: 3;
           box-shadow: $shadow;
-          transform: translateX(-120%);
           transition: transform $high-speed ease;
+
+          &-active {
+            transform: translateX(0);
+          }
+
+          &-deactive {
+            transform: translateX(-120%);
+          }
 
           .greeting {
             // z-index: 4;

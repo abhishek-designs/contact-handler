@@ -564,6 +564,7 @@
   box-shadow: $shadow;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  transition: transform $high-speed ease;
 
   .container {
     position: relative;
@@ -723,6 +724,18 @@
     background: $med-color;
     border-radius: 50%;
   }
+}
+
+.open-state {
+  transform: translateY(0);
+  // opacity: 1;
+  pointer-events: all;
+}
+
+.close-state {
+  transform: translateY(100%);
+  // opacity: 0;
+  pointer-events: none;
 }
 
 @import "media";

@@ -9,6 +9,7 @@ const ContactModal = () => {
 
   const {
     addContact,
+    showModal,
     closeModal,
     editContact,
     currentContact,
@@ -53,16 +54,11 @@ const ContactModal = () => {
         vanishContactAlerts();
       }
     }
-
-    console.log(message);
-    // if (contactError) setAlert(contactError, "danger");
   };
 
   const editTheContact = (e) => {
     e.preventDefault();
     editContact(currentContact._id, contact);
-
-    // setAlert("Contact Edited", "success", "check-circle");
   };
 
   const cancelEditState = (e) => {
@@ -73,21 +69,12 @@ const ContactModal = () => {
   // Render the editable state once
   useEffect(() => {
     // Setting up the error alerts
-    // if (contactError || message) {
-    //   contactError ?? setAlert(contactError, "danger");
-    //   message ?? setAlert(message, "success");
-    //   vanishContactAlerts();
-    // }
+
     if (contactError) {
       console.log(contactError);
       setAlert(contactError, "danger");
       vanishContactAlerts();
     }
-
-    // if (message) {
-    //   setAlert(message, "success", "check-circle");
-    //   vanishContactAlerts();
-    // }
 
     // Setting the current contact to the form if it is there
     if (currentContact) {
@@ -108,10 +95,26 @@ const ContactModal = () => {
     }
   }, [contactContext, currentContact, contactError, message]);
 
+  // const toggleModal = () => {
+  //   if (openModal) {
+  //     return { transform: "translateY(0)", opacity: 1, pointerEvents: "all" };
+  //   } else if (closeModal) {
+  //     return {
+  //       transform: "translateY(-100%)",
+  //       opacity: 0,
+  //       pointerEvents: "none",
+  //     };
+  //   }
+  // };
+
   return (
     <>
       {showAlert && <Alert />}
-      <section className="contact-form-modal bg-light py-2">
+      <section
+        className={`contact-form-modal ${
+          showModal ? "open-state" : "close-state"
+        } bg-light py-2`}
+      >
         <div className="container container-med">
           <h2 className="head-2 primary pb-5">
             {currentContact !== null ? "Edit Contact" : "Add Contact"}

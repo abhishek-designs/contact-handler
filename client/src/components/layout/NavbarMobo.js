@@ -1,9 +1,16 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import AuthContext from "../../context/auth/authContext";
 
 const NavbarMobo = () => {
   const authContext = useContext(AuthContext);
   const { user, logoutUser } = authContext;
+
+  const [showNav, setNav] = useState(false);
+
+  // Function to toggle the mobo nav
+  const toggleNav = (e) => {
+    setNav((showNav) => !showNav);
+  };
 
   // Function to logout the user from the app
   const onLogout = (e) => {
@@ -14,13 +21,23 @@ const NavbarMobo = () => {
     <nav className="navbar-mobo bg-primary light">
       <div className="container container-med">
         <div className="menu">
-          <input type="checkbox" className="toggler" />
+          <input type="checkbox" className="toggler" onClick={toggleNav} />
           <div className="hamburger-menu">
             <div></div>
           </div>
-          <div className="menu-backdrop"></div>
+          <div
+            className={`menu-backdrop ${
+              showNav ? "menu-backdrop-active" : "menu-backdrop-deactive"
+            }`}
+          ></div>
           <div className="menu-options">
-            <div className="menu-options-contain">
+            <div
+              className={`menu-options-contain ${
+                showNav
+                  ? "menu-options-contain-active"
+                  : "menu-options-contain-deactive"
+              }`}
+            >
               <div className="greeting bg-light">
                 <h3 className="head-3">Hello, {user && user.name}</h3>
               </div>

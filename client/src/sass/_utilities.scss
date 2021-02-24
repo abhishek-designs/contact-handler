@@ -507,6 +507,7 @@ button {
   text-align: center;
   font-weight: 500;
   z-index: 6;
+  transition: transform $very-high-speed ease, opacity $very-high-speed ease;
 
   i {
     position: absolute;
@@ -523,6 +524,16 @@ button {
   }
   &-warn {
     background: $yellow-color;
+  }
+  &-slide-in {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+  &-slide-out {
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
   }
 }
 

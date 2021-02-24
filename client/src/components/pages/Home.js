@@ -20,7 +20,7 @@ const Home = (props) => {
 
   const { showAlert, setAlert } = alertContext;
   const { userAuthenticated, loadUser, loading } = authContext;
-  const { contactLoading, contactError, vanishContactAlerts } = contactContext;
+  const { contactLoading, contactError } = contactContext;
 
   const {
     showModal,
@@ -32,6 +32,7 @@ const Home = (props) => {
   } = contactContext;
 
   useEffect(() => {
+    // Load the logged in user's data
     loadUser();
 
     // Also load the contacts of the user from the server
@@ -40,12 +41,6 @@ const Home = (props) => {
     if (message) {
       setAlert(message, "success", "check-circle");
     }
-    // If some alerts will occur while doing contact operations
-    // if (contactError) {
-    //   console.log(contactError);
-    //   setAlert(contactError, "danger");
-    // }
-    // eslint-disable-next-line
   }, [contactError, message]);
 
   if (loading) {
@@ -116,7 +111,7 @@ const Home = (props) => {
           </div>
         </section> */}
         {showModal && <TransparentBG />}
-        {showModal && <ContactModal />}
+        <ContactModal />
       </>
     );
   }
