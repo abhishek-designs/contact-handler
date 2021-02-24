@@ -56,7 +56,7 @@ const Navbar = (props) => {
           <Link
             to="/"
             className="light"
-            style={{ fontFamily: "Sen,sans-serif", fontSize: "1.5rem" }}
+            style={{ fontFamily: "Sen,sans-serif" }}
           >
             Contact<span style={{ color: "#A1DDFF" }}>Handler</span>
           </Link>

@@ -13,8 +13,8 @@ const TransparentBG = () => {
       className="transparent-bg"
       style={{
         position: "fixed",
-        zIndex: 4,
-        backgroundColor: "rgba(0,0,0,0.5)",
+        zIndex: 5,
+        backgroundColor: "rgba(0,0,0,0.3)",
         top: 0,
         left: 0,
         height: "100%",

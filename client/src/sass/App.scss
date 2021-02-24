@@ -15,6 +15,12 @@
       justify-content: center;
     }
 
+    .logo {
+      a {
+        font-size: 1.5rem;
+      }
+    }
+
     .profile-contain {
       position: relative;
       height: 100%;
@@ -124,6 +130,10 @@
   }
 }
 
+.navbar-mobo {
+  display: none;
+}
+
 #home {
   position: relative;
 
@@ -182,6 +192,7 @@
             position: relative;
             background: $light-color;
             z-index: 2;
+            border-radius: 50%;
           }
 
           .edit-btn-contain,
@@ -342,6 +353,7 @@
     align-items: center;
     border: none;
     outline: none;
+    z-index: 2;
 
     &:hover {
       background: lighten($primary-color, 10%);
@@ -548,7 +560,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 4;
+  z-index: 6;
   box-shadow: $shadow;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;

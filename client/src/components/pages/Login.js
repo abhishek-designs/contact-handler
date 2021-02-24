@@ -73,7 +73,7 @@ const Login = (props) => {
           </div>
         </header>
         {/* Aside content */}
-        <aside className="register-content">
+        <aside className="login-content">
           <h1 className="head-4 light">Welcome Back</h1>
           <div className="sub-content">
             <h2 className="head-3 pb-1">
@@ -86,7 +86,7 @@ const Login = (props) => {
           </div>
         </aside>
         {/* Register form */}
-        <form className="register-form bg-light">
+        <form className="login-form bg-light">
           {/* Email */}
           <div className="form-grp">
             <input

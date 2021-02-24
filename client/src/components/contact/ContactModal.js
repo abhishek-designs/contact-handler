@@ -194,7 +194,7 @@ const ContactModal = () => {
                 </div>
               </div>
             </div>
-            <div className="submit-tab bg-semi-med mt-1">
+            <div className="submit-tab mt-1">
               {currentContact !== null ? (
                 <>
                   <button

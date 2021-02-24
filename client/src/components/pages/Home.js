@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Navbar from "../layout/Navbar";
+import NavbarMobo from "../layout/NavbarMobo";
 import SearchBar from "../contact/SearchBar";
 import CircularGrid from "../layout/CircularGrid";
 import Contact from "../contact/Contact";
@@ -54,8 +55,8 @@ const Home = (props) => {
     // Load the dashboard
     return (
       <>
-        {/* <Alert /> */}
         <Navbar history={props.history} />
+        <NavbarMobo />
         {showAlert && message && <Alert />}
         {contactLoading ? (
           <Spinner />

@@ -15,7 +15,7 @@ const Contact = () => {
     // Show the contacts
     return (
       <section id="contact-pane" className="py-2">
-        <h2 className="head-1 primary pb-2">
+        <h2 className="head-1 primary pb-2 contact-head">
           {searchedContacts
             ? `${searchedContacts.length} Contact(s) Found`
             : `${contacts.length} Saved Contacts`}{" "}
