@@ -14,7 +14,6 @@
   "author": "Abhishek",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "concurrently": "^5.3.0",
     "config": "^3.3.3",
