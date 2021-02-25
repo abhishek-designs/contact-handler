@@ -20,7 +20,7 @@ import {
 
 const ContactState = (props) => {
   const initialState = {
-    contacts: null,
+    contacts: [],
     searchedContacts: null,
     currentContact: null,
     showModal: false,
@@ -74,16 +74,16 @@ const ContactState = (props) => {
         },
       });
 
-      console.log(res.data.msg);
+      console.log(res.data.newContact);
       // Dispatch the added contact to the reducer
       dispatch({
         type: ADD_CONTACT,
-        payload: res.data.msg,
+        payload: res.data,
       });
 
       dispatch({ type: CLOSE_CONTACT_MODAL });
       // Call the getContact() function to get the contacts after successful addition
-      getContact();
+      // getContact();
     } catch (err) {
       console.error(err.response.data);
       let serverErr;

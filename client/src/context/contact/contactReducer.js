@@ -26,7 +26,8 @@ const ContactReducer = (state, action) => {
     case ADD_CONTACT:
       return {
         ...state,
-        message: action.payload,
+        contacts: [...state.contacts, action.payload.newContact],
+        message: action.payload.msg,
         contactAdded: true,
         // showAlert: true,
         // alertMsg: {

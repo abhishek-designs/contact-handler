@@ -61,7 +61,7 @@ const Home = (props) => {
             {userAuthenticated && <SearchBar />}
             <div className="container container-med">
               {userAuthenticated ? (
-                contacts ? (
+                contacts.length > 0 ? (
                   <Contact />
                 ) : (
                   <NoContactAlert />

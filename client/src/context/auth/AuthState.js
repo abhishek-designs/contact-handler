@@ -28,8 +28,6 @@ const AuthState = (props) => {
 
   // Function to load the user who gets registered to the app
   const loadUser = async () => {
-    // Set the initial loading till our loadUser will fetch the user asynchronously
-    // dispatch({ type: SET_LOADING });
     // Set the auth-token to the global header so tha we can get rid of puttin auth-token in every req headers
     // Through our validateToken() util function
     validateToken(localStorage.getItem("auth-token"));
@@ -44,16 +42,18 @@ const AuthState = (props) => {
       });
     } catch (err) {
       console.error(err.response);
-      // let serverErr;
-      // if (err.response.data.msg) {
-      //   serverErr = err.response.data.msg;
-      // } else {
-      //   serverErr = err.response.data.errors[0].msg;
-      // }
+      let serverErr;
+      if (err.response.data.msg) {
+        serverErr = err.response.data.msg;
+      } else if (err.response.data.errors) {
+        serverErr = err.response.data.errors[0].msg;
+      } else {
+        serverErr = err.response.data;
+      }
       // Dispatch the data with type LOAD_USER_FAILED
       dispatch({
         type: LOAD_USER_FAILED,
-        payload: err.response,
+        payload: serverErr,
       });
     }
   };
@@ -82,8 +82,10 @@ const AuthState = (props) => {
 
       if (err.response.data.msg) {
         serverErr = err.response.data.msg;
-      } else {
+      } else if (err.response.data.errors) {
         serverErr = err.response.data.errors[0].msg;
+      } else {
+        serverErr = err.response.data;
       }
 
       // Dispatch the data with the type REGISTER_FAIL
@@ -118,8 +120,10 @@ const AuthState = (props) => {
       let serverErr;
       if (err.response.data.msg) {
         serverErr = err.response.data.msg;
-      } else {
+      } else if (err.response.data.errors) {
         serverErr = err.response.data.errors[0].msg;
+      } else {
+        serverErr = err.response.data;
       }
 
       // Dispatch the error data with the type LOGIN_FAIL

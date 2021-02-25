@@ -76,8 +76,8 @@ router.post(
       });
 
       // Save the contact to the database
-      await contact.save();
-      res.status(201).json({ msg: "Contact saved" });
+      const newContact = await contact.save();
+      res.status(201).json({ msg: "Contact saved", newContact });
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");
