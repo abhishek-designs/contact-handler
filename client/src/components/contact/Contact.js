@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import ContactItem from "./ContactItem";
 import ContactContext from "../../context/contact/contactContext";
 import NoContactAlert from "../alerts/NoContactAlert";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const Contact = () => {
   const contactContext = useContext(ContactContext);

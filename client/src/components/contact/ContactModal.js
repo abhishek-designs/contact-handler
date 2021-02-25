@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-// import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Transition, animated } from "react-spring/renderprops";
 import Alert from "../alerts/Alert";
 import ContactContext from "../../context/contact/contactContext";
@@ -21,7 +20,7 @@ const ContactModal = () => {
     vanishContactAlerts,
   } = contactContext;
 
-  const { setAlert, showAlert } = alertContext;
+  const { setAlert } = alertContext;
 
   const [contact, setContact] = useState({
     name: "",
@@ -51,10 +50,13 @@ const ContactModal = () => {
     } else {
       // The inputs are valid give the contact details to the server
       addContact(contact);
-      if (message) {
-        setAlert(message, "success", "check-circle");
-        vanishContactAlerts();
-      }
+      // Clear the fields after successful addition
+      setContact({
+        name: "",
+        email: "",
+        phone: "",
+        type: "personal",
+      });
     }
   };
 
@@ -94,42 +96,11 @@ const ContactModal = () => {
         type: "personal",
       });
     }
-  }, [currentContact]);
-
-  // const toggleModal = () => {
-  //   if (openModal) {
-  //     return { transform: "translateY(0)", opacity: 1, pointerEvents: "all" };
-  //   } else if (closeModal) {
-  //     return {
-  //       transform: "translateY(-100%)",
-  //       opacity: 0,
-  //       pointerEvents: "none",
-  //     };
-  //   }
-  // };
+  }, [currentContact, contactError]);
 
   return (
     <>
-      {/* <Transition
-        native
-        items={showAlert}
-        from={{ transform: "translateY(-100%)" }}
-        enter={{ transform: "translateY(0)" }}
-        leave={{ transform: "translateY(-100%)" }}
-      >
-        {(showAlert) =>
-          showAlert &&
-          ((props) => (
-            <animated.div style={props}>
-              <Alert />
-            </animated.div>
-          ))
-        }
-      </Transition> */}
-      {/* <CSSTransition in={showAlert} timeout={800} classNames="alert-slide">
-        <Alert />
-      </CSSTransition> */}
-
+      {/* {contactError && <Alert />} */}
       <section
         className={`contact-form-modal ${
           showModal ? "open-state" : "close-state"

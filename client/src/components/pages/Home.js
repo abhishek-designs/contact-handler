@@ -12,8 +12,6 @@ import ContactContext from "../../context/contact/contactContext";
 import AuthContext from "../../context/auth/authContext";
 import Alert from "../alerts/Alert";
 import NoContactAlert from "../alerts/NoContactAlert";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { Transition, animated } from "react-spring/renderprops";
 
 const Home = (props) => {
   const alertContext = useContext(AlertContext);
@@ -47,6 +45,10 @@ const Home = (props) => {
     if (message) {
       setAlert(message, "success", "check-circle");
     }
+
+    // if(contactError){
+    //   setAlert(contactError)
+    // }
   }, [message]);
 
   if (loading) {
@@ -56,31 +58,14 @@ const Home = (props) => {
     // Load the dashboard
     return (
       <>
-        <Alert />
         <Navbar history={props.history} />
         <NavbarMobo history={props.history} />
-        {/* <Transition
-          native
-          items={showAlert}
-          from={{ transform: "translateY(-100%)" }}
-          enter={{ transform: "translateY(0)" }}
-          leave={{ transform: "translateY(-100%)" }}
-        >
-          {(showAlert) =>
-            showAlert &&
-            ((props) => (
-              <animated.div style={props}>
-                <Alert />
-              </animated.div>
-            ))
-          }
-        </Transition> */}
+        <Alert />
         {contactLoading ? (
           <Spinner />
         ) : (
           <section id="home">
             <CircularGrid />
-            <Alert />
             {userAuthenticated && <SearchBar />}
             <div className="container container-med">
               {userAuthenticated ? (
@@ -106,33 +91,6 @@ const Home = (props) => {
             </div>
           </section>
         )}
-        {/* <section id="home">
-          <CircularGrid />
-          {showAlert && <Alert />}
-          {contacts && userAuthenticated && <SearchBar />}
-          <div className="container container-med">
-            {userAuthenticated ? (
-              contacts.length === 0 ? (
-                <NoContactAlert />
-              ) : (
-                <Contact />
-              )
-            ) : (
-              "First login to our app"
-            )}
-            {userAuthenticated && (
-              <button
-                className="add-btn bg-primary light"
-                title={currentContact ? "Edit Contact" : "Add Contact"}
-                onClick={openModal}
-              >
-                <i
-                  className={`fa fa-${currentContact ? "pen" : "plus"} fa-2x`}
-                ></i>
-              </button>
-            )}
-          </div>
-        </section> */}
         {showModal && <TransparentBG />}
         <ContactModal />
       </>
