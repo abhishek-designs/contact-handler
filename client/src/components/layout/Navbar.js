@@ -13,7 +13,7 @@ const Navbar = (props) => {
 
   useEffect(() => {
     if (!userAuthenticated) {
-      props.history && props.history.push("/login");
+      props.history.push("/login");
     }
   }, [userAuthenticated]);
 

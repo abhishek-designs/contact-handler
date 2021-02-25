@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+// import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Transition, animated } from "react-spring/renderprops";
 import Alert from "../alerts/Alert";
 import ContactContext from "../../context/contact/contactContext";
 import AlertContext from "../../context/alert/alertContext";
@@ -71,7 +73,6 @@ const ContactModal = () => {
     // Setting up the error alerts
 
     if (contactError) {
-      console.log(contactError);
       setAlert(contactError, "danger");
       vanishContactAlerts();
     }
@@ -93,7 +94,7 @@ const ContactModal = () => {
         type: "personal",
       });
     }
-  }, [contactContext, currentContact, contactError, message]);
+  }, [currentContact]);
 
   // const toggleModal = () => {
   //   if (openModal) {
@@ -109,7 +110,26 @@ const ContactModal = () => {
 
   return (
     <>
-      {showAlert && <Alert />}
+      {/* <Transition
+        native
+        items={showAlert}
+        from={{ transform: "translateY(-100%)" }}
+        enter={{ transform: "translateY(0)" }}
+        leave={{ transform: "translateY(-100%)" }}
+      >
+        {(showAlert) =>
+          showAlert &&
+          ((props) => (
+            <animated.div style={props}>
+              <Alert />
+            </animated.div>
+          ))
+        }
+      </Transition> */}
+      {/* <CSSTransition in={showAlert} timeout={800} classNames="alert-slide">
+        <Alert />
+      </CSSTransition> */}
+
       <section
         className={`contact-form-modal ${
           showModal ? "open-state" : "close-state"

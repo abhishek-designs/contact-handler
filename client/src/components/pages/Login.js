@@ -34,7 +34,7 @@ const Login = (props) => {
       setAlert(error, "danger", "user-times");
       vanishErrors(); // Vanish the previous server errors
     }
-  }, [error, userAuthenticated]);
+  }, [userAuthenticated, error]);
 
   // Function to input the details of user credentials in the state
   const onChange = (e) => {

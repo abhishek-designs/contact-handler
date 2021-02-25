@@ -525,16 +525,28 @@ button {
   &-warn {
     background: $yellow-color;
   }
-  &-slide-in {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: all;
-  }
-  &-slide-out {
-    opacity: 0;
-    transform: translateY(100%);
-    pointer-events: none;
-  }
+}
+.alert-slide-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+.alert-slide-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+  transition: transform $high-speed ease, opacity $high-speed;
+}
+.alert-slide-exit {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+.alert-slide-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+  transition: transform $high-speed ease, opacity $high-speed ease;
 }
 
 .auth-alert {

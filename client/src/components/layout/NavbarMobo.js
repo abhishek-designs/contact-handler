@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "../../context/auth/authContext";
 
-const NavbarMobo = () => {
+const NavbarMobo = (props) => {
   const authContext = useContext(AuthContext);
-  const { user, logoutUser } = authContext;
+  const { user, logoutUser, userAuthenticated } = authContext;
 
   const [showNav, setNav] = useState(false);
 
@@ -11,6 +11,18 @@ const NavbarMobo = () => {
   const toggleNav = (e) => {
     setNav((showNav) => !showNav);
   };
+
+  useEffect(() => {
+    if (!userAuthenticated) {
+      props.history.push("/login");
+    }
+    // Disable scrolling when our nav gets extended
+    if (showNav) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [showNav, props]);
 
   // Function to logout the user from the app
   const onLogout = (e) => {

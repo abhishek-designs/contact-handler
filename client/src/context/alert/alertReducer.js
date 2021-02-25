@@ -12,7 +12,7 @@ const AlertReducer = (state, action) => {
       return {
         ...state,
         showAlert: false,
-        alertMsg: null,
+        alertMsg: {},
       };
     default:
       return state;

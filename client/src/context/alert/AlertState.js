@@ -6,7 +6,7 @@ import AlertReducer from "./alertReducer";
 const AlertState = (props) => {
   const initialState = {
     showAlert: false,
-    alertMsg: null,
+    alertMsg: {},
   };
 
   const [state, dispatch] = useReducer(AlertReducer, initialState);

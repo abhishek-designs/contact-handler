@@ -121,11 +121,13 @@
           }
         }
         .menu-options-contain {
+          // position: absolute;
           position: fixed;
           background: $light-color;
           top: 0;
           left: 0;
           height: 100%;
+          // overflow: hidden;
           width: 20rem;
           z-index: 3;
           box-shadow: $shadow;
