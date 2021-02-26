@@ -12,6 +12,11 @@ const NavbarMobo = (props) => {
     setNav((showNav) => !showNav);
   };
 
+  // Function to close the nav when user clicks outside
+  const closeNav = (e) => {
+    document.querySelector(".toggler").checked = false;
+  };
+
   useEffect(() => {
     if (!userAuthenticated) {
       props.history.push("/login");
@@ -37,21 +42,13 @@ const NavbarMobo = (props) => {
           <div className="hamburger-menu">
             <div></div>
           </div>
-          <div
-            className={`menu-backdrop ${
-              showNav ? "menu-backdrop-active" : "menu-backdrop-deactive"
-            }`}
-          ></div>
+          <div className="menu-backdrop" onClick={closeNav}></div>
           <div className="menu-options">
-            <div
-              className={`menu-options-contain ${
-                showNav
-                  ? "menu-options-contain-active"
-                  : "menu-options-contain-deactive"
-              }`}
-            >
+            <div className="menu-options-contain">
               <div className="greeting bg-light">
-                <h3 className="head-3">Hello, {user && user.name}</h3>
+                <h3 className="head-3">
+                  Hello, {user && user.name.split(" ")[0].slice(0)}
+                </h3>
               </div>
               <ul className="options">
                 <li className="option">
@@ -67,7 +64,7 @@ const NavbarMobo = (props) => {
                   </a>
                 </li>
                 <li className="option" onClick={onLogout}>
-                  <a href="#!" className="red">
+                  <a className="red">
                     <i className="fa fa-sign-out" />
                     Sign Out
                   </a>

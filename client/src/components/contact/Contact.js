@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import ContactItem from "./ContactItem";
 import ContactContext from "../../context/contact/contactContext";
 import NoContactAlert from "../alerts/NoContactAlert";
+import NoResultAlert from "../alerts/NoResultAlert";
 
 const Contact = () => {
   const contactContext = useContext(ContactContext);
@@ -23,13 +24,19 @@ const Contact = () => {
         </h2>
 
         <div className="contact-items">
-          {searchedContacts
-            ? searchedContacts.map((contact) => (
+          {searchedContacts ? (
+            searchedContacts.length > 0 ? (
+              searchedContacts.map((contact) => (
                 <ContactItem key={contact._id} contact={contact} />
               ))
-            : contacts.map((contact) => (
-                <ContactItem key={contact._id} contact={contact} />
-              ))}
+            ) : (
+              <NoResultAlert />
+            )
+          ) : (
+            contacts.map((contact) => (
+              <ContactItem key={contact._id} contact={contact} />
+            ))
+          )}
         </div>
       </section>
     );

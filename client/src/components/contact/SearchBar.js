@@ -20,7 +20,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="srch-tab bg-semi-med py-2">
+    <div className="srch-tab py-2">
       <div className="container container-med">
         <div className="srch-box">
           <i className="fa fa-search primary"></i>

@@ -1,6 +1,15 @@
+/*
+  ==================
+  Importing Stuffs
+  ==================
+*/
 @import "variables";
 
-// Default styling
+/*
+  ==================
+  Default styling
+  ==================
+*/
 * {
   margin: 0;
   padding: 0;
@@ -15,8 +24,6 @@ body {
   color: $light-dark-color;
   position: relative;
   min-height: 100vh;
-  // height: 100vh;
-  // letter-spacing: 2px;
 }
 
 a {
@@ -50,7 +57,11 @@ button {
   font-family: $montserrat;
 }
 
-// Pre-defined classes
+/*
+  ==================
+  Pre-defined classes
+  ==================
+*/
 .container {
   padding: 0 1rem;
   &-small {
@@ -549,35 +560,20 @@ button {
   transition: transform $high-speed ease, opacity $high-speed ease;
 }
 
-.auth-alert {
-  position: absolute;
-  width: 40rem;
-  top: 8rem;
-  right: 35rem;
-  z-index: -1;
-  color: $light-color;
-  padding: 0.8rem 1rem;
-  text-align: center;
-  font-weight: 500;
-  border-radius: 10px;
-  z-index: 1;
+.notify-alert {
+  position: relative;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  color: darken($secondary-color, 4%);
 
-  i {
-    // position: absolute;
-    // left: 20px;
-    // transform: translateY(-50%);
-    // top: 50%;
-    padding-right: 1rem;
-  }
-
-  &-success {
-    background: darken($green-color, 10%);
-  }
-  &-danger {
-    background: $red-color;
-  }
-  &-warn {
-    background: $yellow-color;
+  .head-4 {
+    font-weight: 600;
+    padding-bottom: 1rem;
   }
 }
 
@@ -593,11 +589,4 @@ button {
   &-shadowed {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
-
-  // &-animating {
-  //   &:hover {
-  //     transform: translateY(-5px);
-  //     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  //   }
-  // }
 }

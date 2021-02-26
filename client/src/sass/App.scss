@@ -1,6 +1,16 @@
+/*
+  ==================
+  Importing Stuffs
+  ==================
+*/
 @import "variables";
 @import "utilities";
 
+/*
+  ==================
+  Navbar Styling
+  ==================
+*/
 .navbar {
   position: relative;
   z-index: 2;
@@ -64,6 +74,7 @@
 
         &:checked ~ .user-account-menu {
           opacity: 1;
+          transform: translateY(0);
           pointer-events: all;
         }
       }
@@ -73,12 +84,13 @@
         top: 5.5rem;
         right: 2rem;
         width: 15rem;
-        // height: 10rem;
         border-radius: 13px;
         box-shadow: $shadow;
         opacity: 0;
+        transform: translateY(-20px);
         pointer-events: none;
         z-index: 5;
+        transition: opacity $high-speed ease, transform $high-speed ease;
 
         &::before {
           content: "";
@@ -130,14 +142,25 @@
   }
 }
 
+/*
+  ==================
+  Navbar (Mobile) Styling
+  ==================
+*/
 .navbar-mobo {
   display: none;
 }
 
+/*
+  ==================
+  App Home Styling
+  ==================
+*/
 #home {
   position: relative;
 
   .srch-tab {
+    background: lighten($primary-color, 37%);
     .container {
       .srch-box {
         display: flex;
@@ -196,11 +219,9 @@
         &:hover .user-profile-pic .delete-btn-contain {
           opacity: 1;
           transform: translate(-240%, -50%);
-          // right: -10px;
         }
 
         .user-profile-pic {
-          // position: relative;
           text-align: center;
 
           .profile-pic {
@@ -237,17 +258,6 @@
               justify-content: center;
               align-items: center;
             }
-
-            // .edit-btn {
-            //   &:hover {
-            //     background: lighten($yellow-color, 10%);
-            //   }
-            // }
-            // .delete-btn {
-            //   &:hover {
-            //     background: lighten($red-color, 10%);
-            //   }
-            // }
           }
 
           .edit-btn-contain {
@@ -263,13 +273,6 @@
           }
         }
 
-        // .edit-btn {
-        //   transform: translate(130%, -50%);
-        // }
-        // .delete-btn {
-        //   transform: translate(-130%, -50%);
-        // }
-
         .contact-content {
           .upper-content {
             display: flex;
@@ -279,17 +282,6 @@
             .contact-type {
               position: relative;
               font-size: 0.6rem;
-              // &::before {
-              //   content: "";
-              //   position: absolute;
-              //   height: 4px;
-              //   width: 4px;
-              //   top: 50%;
-              //   left: -10px;
-              //   transform: translateY(-50%);
-              //   border-radius: 50%;
-              //   background-color: $green-color;
-              // }
             }
           }
 
@@ -337,23 +329,6 @@
     }
   }
 
-  .no-contact-alert {
-    height: 80vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // height: 20rem;
-    // width: 31rem;
-
-    img {
-      // display: inline-block;
-      // margin: 0 auto;
-      height: 20rem;
-      width: 31rem;
-    }
-  }
-
   .add-btn {
     position: fixed;
     bottom: 40px;
@@ -381,6 +356,11 @@
   }
 }
 
+/*
+  ==================
+  Register and Login Page Styling
+  ==================
+*/
 #register,
 #login {
   position: relative;
@@ -521,7 +501,11 @@
   }
 }
 
-// Spinner
+/*
+  ==================
+  Loading Spinner Styling
+  ==================
+*/
 .spinner {
   height: 80vh;
   width: 100%;
@@ -569,7 +553,11 @@
   }
 }
 
-// Contact form modal
+/*
+  ==================
+  Contact Form Modal Styling
+  ==================
+*/
 .contact-form-modal {
   position: fixed;
   left: 0;
@@ -753,4 +741,9 @@
   pointer-events: none;
 }
 
+/*
+  ==================
+  Importing Media Query Code
+  ==================
+*/
 @import "media";

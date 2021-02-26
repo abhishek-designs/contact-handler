@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import Navbar from "../layout/Navbar";
 import NavbarMobo from "../layout/NavbarMobo";
 import SearchBar from "../contact/SearchBar";
-import CircularGrid from "../layout/CircularGrid";
 import Contact from "../contact/Contact";
 import Spinner from "../layout/Spinner";
 import ContactModal from "../contact/ContactModal";
@@ -65,8 +64,7 @@ const Home = (props) => {
           <Spinner />
         ) : (
           <section id="home">
-            <CircularGrid />
-            {userAuthenticated && <SearchBar />}
+            {userAuthenticated && contacts.length > 0 && <SearchBar />}
             <div className="container container-med">
               {userAuthenticated ? (
                 contacts.length > 0 ? (

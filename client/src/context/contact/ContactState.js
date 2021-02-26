@@ -74,16 +74,14 @@ const ContactState = (props) => {
         },
       });
 
-      console.log(res.data.newContact);
       // Dispatch the added contact to the reducer
       dispatch({
         type: ADD_CONTACT,
         payload: res.data,
       });
 
+      // Close the contact modal after successful addition
       dispatch({ type: CLOSE_CONTACT_MODAL });
-      // Call the getContact() function to get the contacts after successful addition
-      // getContact();
     } catch (err) {
       console.error(err.response.data);
       let serverErr;
