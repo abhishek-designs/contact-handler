@@ -16,7 +16,7 @@ app.use("/api/contact", require("./routes/contact"));
 // Loading the static build of our app when our app is in production state
 if (process.env.NODE_ENV === "production") {
   // If it is in production, load the static file
-  app.use(express.static("/client/build"));
+  app.use(express.static("client/build"));
 
   // Also load the index.html file of the final build when a user hits any get method except the above ones
   app.get("*", (req, res) => {
