@@ -559,10 +559,10 @@
   ==================
 */
 .contact-form-modal {
-  position: sticky;
+  position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: -10px;
   z-index: 6;
   box-shadow: $shadow;
   border-top-left-radius: 16px;
