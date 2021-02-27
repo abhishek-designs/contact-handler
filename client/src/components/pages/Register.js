@@ -76,7 +76,7 @@ const Register = (props) => {
   return (
     <div id="register" className="bg-light">
       {/* Show the alert */}
-      {showAlert && <Alert />}
+      <Alert />
       <div className="container container-med">
         {/* Main logo header */}
         <header className="logo-header py-1">

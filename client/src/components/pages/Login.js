@@ -64,7 +64,7 @@ const Login = (props) => {
 
   return (
     <div id="login" className="bg-light">
-      {showAlert && <Alert />}
+      <Alert />
       <div className="container container-med">
         {/* Main logo header */}
         <header className="logo-header py-1">
