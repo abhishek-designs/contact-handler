@@ -209,11 +209,11 @@
           align-items: center;
 
           &:hover .user-profile-pic .edit-btn-contain {
-            transform: translate(120%, -120%);
+            transform: translate(120%, -50%);
           }
 
           &:hover .user-profile-pic .delete-btn-contain {
-            transform: translate(120%, 20%);
+            transform: translate(-120%, -50%);
           }
 
           .user-profile-pic {
