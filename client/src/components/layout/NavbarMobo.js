@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import AuthContext from "../../context/auth/authContext";
 
 const NavbarMobo = (props) => {
@@ -6,6 +6,7 @@ const NavbarMobo = (props) => {
   const { user, logoutUser, userAuthenticated } = authContext;
 
   const [showNav, setNav] = useState(false);
+  const toggler = useRef();
 
   // Function to toggle the mobo nav
   const toggleNav = (e) => {
@@ -14,7 +15,7 @@ const NavbarMobo = (props) => {
 
   // Function to close the nav when user clicks outside
   const closeNav = (e) => {
-    document.querySelector(".toggler").checked = false;
+    toggler.current.checked = false;
   };
 
   useEffect(() => {
@@ -38,7 +39,12 @@ const NavbarMobo = (props) => {
     <nav className="navbar-mobo bg-primary light">
       <div className="container container-med">
         <div className="menu">
-          <input type="checkbox" className="toggler" onClick={toggleNav} />
+          <input
+            ref={toggler}
+            type="checkbox"
+            className="toggler"
+            onClick={toggleNav}
+          />
           <div className="hamburger-menu">
             <div></div>
           </div>

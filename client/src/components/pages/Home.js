@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import Navbar from "../layout/Navbar";
 import NavbarMobo from "../layout/NavbarMobo";
 import SearchBar from "../contact/SearchBar";
@@ -17,9 +17,9 @@ const Home = (props) => {
   const contactContext = useContext(ContactContext);
   const authContext = useContext(AuthContext);
 
-  const { showAlert, setAlert } = alertContext;
+  const { setAlert } = alertContext;
   const { userAuthenticated, loadUser, loading } = authContext;
-  const { contactLoading, contactError } = contactContext;
+  const { contactLoading } = contactContext;
 
   const {
     showModal,
@@ -44,10 +44,6 @@ const Home = (props) => {
     if (message) {
       setAlert(message, "success", "check-circle");
     }
-
-    // if(contactError){
-    //   setAlert(contactError)
-    // }
   }, [message]);
 
   if (loading) {

@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Transition, animated } from "react-spring/renderprops";
-import Alert from "../alerts/Alert";
 import ContactContext from "../../context/contact/contactContext";
 import AlertContext from "../../context/alert/alertContext";
 
@@ -16,7 +14,6 @@ const ContactModal = () => {
     currentContact,
     removeCurrentContact,
     contactError,
-    message,
     vanishContactAlerts,
   } = contactContext;
 
@@ -100,7 +97,6 @@ const ContactModal = () => {
 
   return (
     <>
-      {/* {contactError && <Alert />} */}
       <section
         className={`contact-form-modal ${
           showModal ? "open-state" : "close-state"
