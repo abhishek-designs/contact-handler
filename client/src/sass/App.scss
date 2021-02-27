@@ -559,11 +559,12 @@
   ==================
 */
 .contact-form-modal {
-  position: absolute;
+  // position: absolute;
   left: 0;
   right: 0;
-  bottom: -10px;
+  bottom: 0;
   z-index: 6;
+  // display: none;
   box-shadow: $shadow;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -729,16 +730,26 @@
   }
 }
 
+.fixed-pos {
+  position: fixed;
+}
+
+.sticky-pos {
+  position: sticky;
+}
+
 .open-state {
   transform: translateY(0);
   // opacity: 1;
   pointer-events: all;
+  // display: block;
 }
 
 .close-state {
   transform: translateY(100%);
   // opacity: 0;
   pointer-events: none;
+  // display: none;
 }
 
 /*

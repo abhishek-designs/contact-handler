@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import ContactContext from "../../context/contact/contactContext";
 import AlertContext from "../../context/alert/alertContext";
 
@@ -26,6 +26,8 @@ const ContactModal = () => {
     type: "personal",
   });
 
+  const contactModal = useRef();
+
   const onClick = () => {
     closeModal();
   };
@@ -35,6 +37,16 @@ const ContactModal = () => {
       ...contact, // State is immutable we have to update the state not to overwrite it
       [e.target.name]: e.target.value,
     });
+  };
+
+  // Changing the position of the contact modal to absolute when focused on the input field
+  const onFocused = (e) => {
+    contactModal.current.classList.toggle("sticky-pos");
+  };
+
+  // Changing the position of the contact modal to fixed when blurred on the input\
+  const onBlurred = (e) => {
+    contactModal.current.classList.toggle("fixed-pos");
   };
 
   const addTheContact = (e) => {
@@ -98,7 +110,8 @@ const ContactModal = () => {
   return (
     <>
       <section
-        className={`contact-form-modal ${
+        ref={contactModal}
+        className={`contact-form-modal fixed-pos ${
           showModal ? "open-state" : "close-state"
         } bg-light py-2`}
       >
@@ -115,6 +128,8 @@ const ContactModal = () => {
                   name="name"
                   className="field name-field"
                   onChange={onChange}
+                  onFocus={onFocused}
+                  onBlur={onBlurred}
                   value={contact.name}
                   required
                   autoComplete="off"
@@ -130,6 +145,8 @@ const ContactModal = () => {
                   className="field email-field"
                   name="email"
                   onChange={onChange}
+                  onFocus={onFocused}
+                  onBlur={onBlurred}
                   value={contact.email}
                   required
                   autoComplete="off"
@@ -145,6 +162,8 @@ const ContactModal = () => {
                   className="field phone-field"
                   name="phone"
                   onChange={onChange}
+                  onFocus={onFocused}
+                  onBlur={onBlurred}
                   value={contact.phone}
                   required
                   autoComplete="off"
