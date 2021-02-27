@@ -29,6 +29,7 @@ const ContactModal = () => {
   const contactModal = useRef();
 
   const onClick = () => {
+    contactModal.current.classList.toggle("fixed-pos");
     closeModal();
   };
 
@@ -42,11 +43,6 @@ const ContactModal = () => {
   // Changing the position of the contact modal to absolute when focused on the input field
   const onFocused = (e) => {
     contactModal.current.classList.toggle("sticky-pos");
-  };
-
-  // Changing the position of the contact modal to fixed when blurred on the input\
-  const onBlurred = (e) => {
-    contactModal.current.classList.toggle("fixed-pos");
   };
 
   const addTheContact = (e) => {
@@ -82,7 +78,6 @@ const ContactModal = () => {
   // Render the editable state once
   useEffect(() => {
     // Setting up the error alerts
-
     if (contactError) {
       setAlert(contactError, "danger");
       vanishContactAlerts();
@@ -129,7 +124,6 @@ const ContactModal = () => {
                   className="field name-field"
                   onChange={onChange}
                   onFocus={onFocused}
-                  onBlur={onBlurred}
                   value={contact.name}
                   required
                   autoComplete="off"
@@ -146,7 +140,6 @@ const ContactModal = () => {
                   name="email"
                   onChange={onChange}
                   onFocus={onFocused}
-                  onBlur={onBlurred}
                   value={contact.email}
                   required
                   autoComplete="off"
@@ -163,7 +156,6 @@ const ContactModal = () => {
                   name="phone"
                   onChange={onChange}
                   onFocus={onFocused}
-                  onBlur={onBlurred}
                   value={contact.phone}
                   required
                   autoComplete="off"
