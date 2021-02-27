@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useEffect } from "react";
 import Navbar from "../layout/Navbar";
 import NavbarMobo from "../layout/NavbarMobo";
 import SearchBar from "../contact/SearchBar";
@@ -27,18 +27,11 @@ const Home = (props) => {
     currentContact,
     getContact,
     message,
-    // openModal,
+    openModal,
   } = contactContext;
 
-  const [modalOpened, setModal] = useState(false);
-
   const openTheModal = (e) => {
-    // openModal();
-    setModal(true);
-  };
-
-  const closeModal = (e) => {
-    setModal(false);
+    openModal();
   };
 
   useEffect(() => {
@@ -93,7 +86,7 @@ const Home = (props) => {
           </section>
         )}
         {showModal && <TransparentBG />}
-        <ContactModal modalOpened={modalOpened} closeModal={closeModal} />
+        <ContactModal />
       </>
     );
   }
