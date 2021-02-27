@@ -2,14 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import ContactContext from "../../context/contact/contactContext";
 import AlertContext from "../../context/alert/alertContext";
 
-const ContactModal = () => {
+const ContactModal = ({ modalOpened, closeModal }) => {
   const contactContext = useContext(ContactContext);
   const alertContext = useContext(AlertContext);
 
   const {
     addContact,
     showModal,
-    closeModal,
+    // closeModal,
     editContact,
     currentContact,
     removeCurrentContact,
@@ -99,7 +99,7 @@ const ContactModal = () => {
     <>
       <section
         className={`contact-form-modal ${
-          showModal ? "open-state" : "close-state"
+          modalOpened ? "open-state" : "close-state"
         } bg-light py-2`}
       >
         <div className="container container-med">
