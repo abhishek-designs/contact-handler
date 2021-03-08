@@ -2,4 +2,4 @@
 
 ---
 
-<a href="https://handler-contact.herokuapp.com/"><img src="client/preview/contact-handler-show.png" alt="contact handler showcase"/></a>
+<a href="https://handler-contact.herokuapp.com/"><img src="client/preview/contact-show.png" alt="contact handler showcase"/></a>
