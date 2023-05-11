@@ -18,25 +18,25 @@ app.use("/api/contact", require("./routes/contact"));
 // If it is in production, load the static file
 // app.use(express.static("client/build"));
 app.use(express.static("client/build"));
-app.use(express.static("admin"));
+// app.use(express.static("client"));
 
 // TODO ADmin  side
-app.get("/admin", (req, res) => {
-  // Send the index.html file
-  res.sendFile(path.resolve(__dirname, "admin", "index.html"));
-});
+// app.get("/admin", (req, res) => {
+//   // Send the index.html file
+//   res.sendFile(path.resolve(__dirname, "admin", "index.html"));
+// });
 // Also load the index.html file of the final build when a user hits any get method except the above ones
 // TODO MAIN SITE
-app.get("/cl", (req, res) => {
+app.get("/", (req, res) => {
   // Send the index.html file
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
 // TODO Test side
-app.get("/test", (req, res) => {
-  // Send the index.html file
-  res.sendFile(path.resolve(__dirname, "testf", "index.html"));
-});
+// app.get("/test", (req, res) => {
+//   // Send the index.html file
+//   res.sendFile(path.resolve(__dirname, "testf", "index.html"));
+// });
 
 // }
 
