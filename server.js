@@ -14,16 +14,31 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/contact", require("./routes/contact"));
 
 // Loading the static build of our app when our app is in production state
-if (process.env.NODE_ENV === "production") {
-  // If it is in production, load the static file
-  app.use(express.static("client/build"));
+// if (process.env.NODE_ENV === "production") {
+// If it is in production, load the static file
+// app.use(express.static("client/build"));
+app.use(express.static("client/build"));
+app.use(express.static("admin"));
 
-  // Also load the index.html file of the final build when a user hits any get method except the above ones
-  app.get("*", (req, res) => {
-    // Send the index.html file
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+// TODO ADmin  side
+app.get("/admin", (req, res) => {
+  // Send the index.html file
+  res.sendFile(path.resolve(__dirname, "admin", "index.html"));
+});
+// Also load the index.html file of the final build when a user hits any get method except the above ones
+// TODO MAIN SITE
+app.get("/cl", (req, res) => {
+  // Send the index.html file
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+
+// TODO Test side
+app.get("/test", (req, res) => {
+  // Send the index.html file
+  res.sendFile(path.resolve(__dirname, "testf", "index.html"));
+});
+
+// }
 
 // listening on the PORT
 const PORT = process.env.PORT || 5000;
